@@ -36,7 +36,9 @@ class Builder
     {
         return isset($this->builders[$params->primaryType])
             ? $this->builders[$params->primaryType]
-                ->create($fields, $relationships, $metadata)
+                ->create(
+                    $params->primaryClass, $fields, $relationships, $metadata
+                )
             : $this->builders[self::DEFAULT_BUILDER]
                 ->create(
                     $params->primaryClass, $fields, $relationships, $metadata
